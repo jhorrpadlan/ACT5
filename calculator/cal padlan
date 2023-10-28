@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    header{
+        background-color:burlywood;
+        color: antiquewhite;
+        text-align: center;
+        padding: 20px;
+
+    }
+    .container{
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: center;
+    }
+    .calculator-box{
+        background-color:gray;
+        padding: 2rem;
+        width: 50%;
+    }
+    .textview{
+        width: 100%;
+        font-size: 1.5em;
+        
+
+    }
+    .calculator-btn button{
+        width: 100%;
+        padding: 20px 2vw;
+
+    }
+    .calculator-btn{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: stretch;
+        gap: 2px;
+        margin-top: 10px;
+
+    }
+    .calculator-btn .btnequal{
+        grid-row: 4/6;
+        grid-column-start: 4;
+
+    }
+    .calculator-btn .btnzero{
+        grid-column: span 2;
+
+    }
+
+</style>
+<body>
+    <header>
+        <h1>CALCULATOR</h1>
+    </header>
+
+    <section class="container">
+
+        <div class="calculator-box">
+
+            <form action="" name="form1">
+
+                <input type="text" name="textview" class="textview">
+            </form>
+            <div class="calculator-btn">
+                <button onclick="document.form1.textview.value=''" value="C">C</button>
+                <button onclick="backspace()" value="B">B</button>
+                <button onclick="insert('/')" value="/">/</button>
+                <button onclick="insert('')" value="">*</button>
+
+                <button onclick="insert(7)" value="7">7</button>
+                <button onclick="insert(8)" value="8">8</button>
+                <button onclick="insert(9)" value="9">9</button>
+                <button onclick="insert('-')" value="-">-</button>
+
+                <button onclick="insert(4)" value="4">4</button>
+                <button onclick="insert(5)" value="5">5</button>
+                <button onclick="insert(6)" value="6">6</button>
+                <button onclick="insert('+')" value="+">+</button>
+                
+                <button onclick="insert(1)" value="1">1</button>
+                <button onclick="insert(2)" value="2">2</button>
+                <button onclick="insert(3)" value="3">3</button>
+
+                <button class="btnequal" onclick="equal()" value="=">=</button>
+                <button class="btnzero"  onclick="insert('0')" value="0">0</button>
+                <button onclick="insert('.')" value=".">.</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+<script>
+        
+        function insert(num){
+
+            const inputvalue = document.form1.textview.value;
+            document.form1.textview.value = inputvalue + num;
+        }
+        function equal(){
+
+            let total = document.form1.textview.value;
+
+            if(total){
+
+                total= eval(total);
+
+                document.form1.textview.value = total;
+
+            } else {
+                alert("please input value");
+                
+            }
+
+
+        }
+        function backspace(){
+
+            let total = document.form1.textview.value;
+
+            total = total.slice(0, -1)
+            document.form1.textview.value = total;
+        }
+
+</script>
