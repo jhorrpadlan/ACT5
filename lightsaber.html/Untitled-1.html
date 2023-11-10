@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIGHT BULB</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .LSFRONT{
+        width: 50%;
+        height: 50%;
+    }
+    .LSBACK{
+        object-fit: cover;
+        width: 50%;
+        height: 50vh;
+    }
+</style>
+<body>
+    <div class="LSFRONT">
+        <img id="LIGHTSABER" src="/img/LSFRONT.jpg" onclick="light_change()" class="LSBACK" alt="">
+    </div>
+</body>
+</html>
+
+<script>
+    function light_change(){
+      
+        let image = document.getElementById('LIGHTSABER');
+
+        if(image.src.includes("LSFRONT")) {
+       
+
+            image.src = "/img/LSMID.jpg";
+
+            setTimeout(()=> {
+                image.src = "/img/LSBACK.jpg";
+            }, 1000);
+        }else {
+            image.src = "/img/LSFRONT.jpg";
+        }
+    }
+</script>
