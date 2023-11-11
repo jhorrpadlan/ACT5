@@ -68,7 +68,7 @@ ul li:hover{
 }
 
 body{
-    background-image:url(/img/bb.gif);
+    background-image:url(\img\bb.gif);
     background-attachment: fixed;
  
     background-size: cover;
